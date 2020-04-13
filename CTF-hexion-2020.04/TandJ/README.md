@@ -1,8 +1,8 @@
-#Can you help Tom catch Jerry?
-
-T&J hexionteam 12.04.2020
+# Can you help Tom catch Jerry?
 
 A pcapng file is given with nothing particularly interesting apart from the fact that every flag is a USB input to the PC and the last 4 bytes indicate that the device is most likely a mouse (the same way it is hinted in the name).
+
+![Wireshark Image](https://github.com/averliok/CTF/blob/master/CTF-hexion-2020.04/TandJ/img/Wireshark_jerry.png)
 
 We write dissectors in lua that translate the hexadecimal values to the buffer code.
 
@@ -80,7 +80,11 @@ end
 DissectorTable.get("usb.interrupt"):add(0xffff, usb_mouse_protocol)
 ```
 
-Then we add the script to the plugins folder and address the .pcapng file again. We export it as JSON file for the later visualization of mouse pattern.
+Then we add the script to the plugins folder and address the .pcapng file again.
+
+![Mouse script](https://github.com/averliok/CTF/blob/master/CTF-hexion-2020.04/TandJ/img/Mouse_script.png)
+
+We export it as JSON file for the later visualization of mouse pattern.
 
 ```import itertools
 import json
@@ -111,3 +115,5 @@ def main():
 main()```
 
 After we import JSON to Python and analyze it we get a matplotlib object which is too shrunk. We enlarge it and we can read the flag from there.
+
+![hexctf](https://github.com/averliok/CTF/blob/master/CTF-hexion-2020.04/TandJ/img/hexctf.png)
