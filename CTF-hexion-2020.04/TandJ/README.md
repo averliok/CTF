@@ -86,10 +86,10 @@ Then we add the script to the plugins folder and address the .pcapng file again.
 
 We export it as JSON file for the later visualization of mouse pattern.
 
-```import itertools
+```
+import itertools
 import json
 import matplotlib.pyplot as plt
-
 
 def main():
   packets_export_file = open('/home/averliok/Downloads/jerry.json')
@@ -112,7 +112,8 @@ def main():
   plt.savefig("hexctf.png")
   plt.show()
 
-main()```
+main()
+```
 
 After we import JSON to Python and analyze it we get a matplotlib object which is too shrunk. We enlarge it and we can read the flag from there.
 
